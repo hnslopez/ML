@@ -1,0 +1,205 @@
+<html
+  style="display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Arial, sans-serif"
+>
+<head>
+  <script>
+
+function getRandomFloat(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+
+function generateRandomData() {
+  // Match Kills
+  document.getElementById("MatchId").value = getRandomFloat(4, 1000);
+  // Match Kills
+  document.getElementById("RoundId").value = getRandomFloat(-1.583040e+00, 3.125908e+00);
+  // Match Kills
+  document.getElementById("TimeAlive").value = getRandomFloat(-1.583040e+00, 3.125908e+00);
+  // Match Kills
+  document.getElementById("TravelledDistance").value = getRandomFloat(-1.583040e+00, 3.125908e+00);
+  // Match Kills
+  document.getElementById("RLethalGrenadesThrown").value = Math.floor(Math.random() * 4);
+  // Match Kills
+  document.getElementById("RNonLethalGrenadesThrown").value = Math.floor(Math.random() * 6);
+  // Match Kills
+  document.getElementById("PrimaryAssaultRifle").value = Math.floor(Math.random() * 2);
+  // Match Kills
+  document.getElementById("PrimarySniperRifle").value = Math.floor(Math.random() * 2);
+  // Match Kills
+  document.getElementById("PrimaryHeavy").value = Math.floor(Math.random() * 2);
+  // Match Kills
+  document.getElementById("PrimarySMG").value = Math.floor(Math.random() * 2);
+  // Match Kills
+  document.getElementById("PrimaryPistol").value = Math.floor(Math.random() * 2);
+
+  // Match Kills
+  document.getElementById("FirstKillTime").value = getRandomFloat(-4.654356e-01, 3.696755e+00);
+
+  // Match Kills
+  document.getElementById("RoundKills").value = Math.floor(Math.random() * 5);
+  // Match Kills
+  document.getElementById("RoundAssists").value = Math.floor(Math.random() * 5);
+  // Match Kills
+  document.getElementById("RoundHeadshots").value = Math.floor(Math.random() * 5);
+  // Match Kills
+  document.getElementById("RoundFlankKills").value = Math.floor(Math.random() * 5);
+  // Match Kills
+  document.getElementById("RoundStartingEquipmentValue").value = getRandomFloat(-1.583040e+00, 3.125908e+00);
+  // Match Kills
+  document.getElementById("TeamStartingEquipmentValue").value = getRandomFloat(-1.583040e+00, 3.125908e+00);
+  
+  // Match Kills
+  document.getElementById("MatchKills").value = getRandomFloat(-1.583040e+00, 3.125908e+00);
+  
+  // Match Flank Kills
+  document.getElementById("MatchFlankKills").value = getRandomFloat(-1.583040e+00, 3.125908e+00);
+
+  // Match Assists
+  document.getElementById("MatchAssists").value = getRandomFloat(-1.583040e+00, 3.125908e+00);
+
+  // Match Headshots
+  document.getElementById("MatchHeadshots").value = getRandomFloat(-1.583040e+00, 3.125908e+00);
+
+  // Total Grenades Thrown
+  document.getElementById("RTotalGrenadesThrown").value = getRandomFloat(-1.583040e+00, 3.125908e+00);
+
+  // Round Winner
+  document.getElementById("RoundWinner_0").value = getRandomFloat(-1.583040e+00, 3.125908e+00);
+  document.getElementById("RoundWinner_1").value = getRandomFloat(-1.583040e+00, 3.125908e+00);
+
+  // Survived
+  document.getElementById("Survived_0").value = getRandomFloat(-1.583040e+00, 3.125908e+00);
+  document.getElementById("Survived_1").value = getRandomFloat(-1.583040e+00, 3.125908e+00);
+
+  // Team
+  document.getElementById("Team_CounterTerrorist").value = getRandomFloat(-1.583040e+00, 3.125908e+00);
+  document.getElementById("Team_Terrorist").value = getRandomFloat(-1.583040e+00, 3.125908e+00);
+
+  // Map
+  document.getElementById("de_dust2").value = getRandomFloat(-1.583040e+00, 3.125908e+00);
+  document.getElementById("de_inferno").value = getRandomFloat(-1.583040e+00, 3.125908e+00);
+  document.getElementById("de_mirage").value = getRandomFloat(-1.583040e+00, 3.125908e+00);
+  document.getElementById("de_nuke").value = getRandomFloat(-1.583040e+00, 3.125908e+00);
+  
+}
+  </script>
+</head>
+<body>
+    <h3>Modelo Predictivo basado en el conjunto de datos de partidas de CS:GO</h3>
+    <p>El objetivo de la siguiente herramienta es buscar predecir el resultado de una partida de<br>CS:GO basado en distintos atributos y caracteristicas ingresados por el usuario</p>
+
+<div>
+  <form action="/result" method="POST">
+    <label for="MatchId">ID del Match [MatchId]</label><br>
+    <input type="text" id="MatchId" name="MatchId" required>
+    <br><br>
+    <label for="RoundId">ID del Round [RoundId]</label><br>
+    <input type="text" id="RoundId" name="RoundId" required>
+    <br><br>
+    <label for="TimeAlive">¿Cuanto tiempo estuvo vivo? (En minutos, ejemplo: 35, 63, 80) [TimeAlive]</label><br>
+    <input type="text" id="TimeAlive" name="TimeAlive" required>
+    <br><br>
+    <label for="TravelledDistance">¿Cuanta distancia recorrió? (Un numero de al menos 12 digitos, por ejemplo: 3547757794438730) [TravelledDistance]</label><br>
+    <input type="text" id="TravelledDistance" name="TravelledDistance" required>
+    <br><br>
+    <label for="RLethalGrenadesThrown">¿Cantidad de granadas letales arrojadas? (0 -> 4) [RLethalGrenadesThrown]</label><br>
+    <input type="text" id="RLethalGrenadesThrown" name="RLethalGrenadesThrown" pattern="[01234]" required>
+    <br><br>
+    <label for="RNonLethalGrenadesThrown">¿Cantidad de granadas NO letales arrojadas? (0 -> 6) [RNonLethalGrenadesThrown]</label><br>
+    <input type="text" id="RNonLethalGrenadesThrown" name="RNonLethalGrenadesThrown" pattern="[0123456]" required>
+    <br><br>
+    <label for="PrimaryAssaultRifle">¿Su arma primaria del round fue un rifle de asalto? (1 -> Si ; 0 -> No) [PrimaryAssaultRifle]</label><br>
+    <input type="text" id="PrimaryAssaultRifle" name="PrimaryAssaultRifle" pattern="[01]" required>
+    <br><br>
+    <label for="PrimarySniperRifle">¿Su arma primaria del round fue un rifle de francotirador? (1 -> Si ; 0 -> No) [PrimarySniperRifle]</label><br>
+    <input type="text" id="PrimarySniperRifle" name="PrimarySniperRifle" pattern="[01]" required>
+    <br><br>
+    <label for="PrimaryHeavy">¿Su arma primaria del round fue una ametralladora pesada? (1 -> Si ; 0 -> No) [PrimaryHeavy]</label><br>
+    <input type="text" id="PrimaryHeavy" name="PrimaryHeavy" pattern="[01]" required>
+    <br><br>
+    <label for="PrimarySMG">¿Su arma primaria del round fue un subfusil? (1 -> Si ; 0 -> No) [PrimarySMG]</label><br>
+    <input type="text" id="PrimarySMG" name="PrimarySMG" pattern="[01]" required>
+    <br><br>
+    <label for="PrimaryPistol">¿Su unica arma del round fue una pistola? (No llevaba arma primaria) (1 -> Si ; 0 -> No) [PrimaryPistol]</label><br>
+    <input type="text" id="PrimaryPistol" name="PrimaryPistol" pattern="[01]" required>
+    <br><br>
+    <label for="FirstKillTime">¿Cuanto tiempo le tomó hacer su primera kill? (n (Numeros de al menos 6 digitos, ej: 373547) ; 0 -> No hizo kill en el round) [FirstKillTime]</label><br>
+    <input type="text" id="FirstKillTime" name="FirstKillTime" required>
+    <br><br>
+    <label for="RoundKills">¿Cuantas kills hizo en el round? (0 -> 5) [RoundKills]</label><br>
+    <input type="text" id="RoundKills" name="RoundKills" pattern="[012345]" required>
+    <br><br>
+    <label for="RoundAssists">¿Cuantas asistencias hizo en el round? (0 -> 5) [RoundAssists]</label><br>
+    <input type="text" id="RoundAssists" name="RoundAssists" pattern="[012345]" required>
+    <br><br>
+    <label for="RoundHeadshots">¿Cuantos headshots hizo en el round? (0 -> 5) [RoundHeadshots]</label><br>
+    <input type="text" id="RoundHeadshots" name="RoundHeadshots" pattern="[012345]" required>
+    <br><br>
+    <label for="RoundFlankKills">¿Cuantas kills por la espalda hizo en el round? (0 -> 5) [RoundFlankKills]</label><br>
+    <input type="text" id="RoundFlankKills" name="RoundFlankKills" required>
+    <br><br>
+    <label for="RoundStartingEquipmentValue">¿Cual fue el valor del equipamiento con el que el jugador comenzó el round? (Numeros de al menos 3 digitos, ej: 750) [RoundStartingEquipmentValue]</label><br>
+    <input type="text" id="RoundStartingEquipmentValue" name="RoundStartingEquipmentValue" required>
+    <br><br>
+    <label for="TeamStartingEquipmentValue">¿Cual fue el valor del equipamiento con el que el equipo del jugador comenzó el round? (Numeros de al menos 3 digitos, ej: 750) [TeamStartingEquipmentValue]</label><br>
+    <input type="text" id="TeamStartingEquipmentValue" name="TeamStartingEquipmentValue" required>
+    <br><br>
+    <label for="MatchKills">¿Cuantas kills hizo en la partida? (Numeros de al menos 1 digito, ej: 0, 12, 25) [MatchKills]</label><br>
+    <input type="text" id="MatchKills" name="MatchKills" required>
+    <br><br>
+    <label for="MatchFlankKills">¿Cuantas kills por la espalda hizo en la partida? (Numeros de al menos 1 digito, ej: 0, 12, 25) [MatchFlankKills]</label><br>
+    <input type="text" id="MatchFlankKills" name="MatchFlankKills" required>
+    <br><br>
+    <label for="MatchAssists">¿Cuantas asistencias hizo en la partida? (Numeros de al menos 1 digito, ej: 0, 12, 25) [MatchAssists]</label><br>
+    <input type="text" name="MatchAssists" id="MatchAssists" required>
+    <br><br>
+    <label for="MatchHeadshots">¿Cuantos headshots hizo en la partida? (Numeros de al menos 1 digito, ej: 0, 12, 25) [MatchHeadshots]</label><br>
+    <input type="text" name="MatchHeadshots" id="MatchHeadshots" required>
+    <br><br>
+    <label for="RTotalGrenadesThrown">¿Cantidad de granadas totales arrojadas? Independientemente de si fueron de tipo letal o no (Numeros de al menos 1 digito, ej: 0, 12, 25) [RTotalGrenadesThrown]</label><br>
+    <input type="text" name="RTotalGrenadesThrown" id="RTotalGrenadesThrown" required>
+    <br><br>
+    <label for="RoundWinner_0">¿Perdió el round? (1 -> Si ; 0 -> No) [RoundWinner_0]</label><br>
+    <input type="text" name="RoundWinner_0" id="RoundWinner_0" required>
+    <br><br>
+    <label for="RoundWinner_1">¿Ganó el round? (1 -> Si ; 0 -> No) [RoundWinner_1]</label><br>
+    <input type="text" name="RoundWinner_1" id="RoundWinner_1" required>
+    <br><br>
+    <label for="Survived_0">¿Murió en el round? (1 -> Si ; 0 -> No) [Survived_0]</label><br>
+    <input type="text" name="Survived_0" id="Survived_0" required>
+    <br><br>
+    <label for="Survived_1">¿Sobrevivió el round? (1 -> Si ; 0 -> No) [Survived_1]</label><br>
+    <input type="text" name="Survived_1" id="Survived_1" required>
+    <br><br>
+    <label for="Team_CounterTerrorist">¿El jugador esta en el equipo CONTRA terrorista? (1 -> Si ; 0 -> No) [Team_CounterTerrorist]</label><br>
+    <input type="text" name="Team_CounterTerrorist" id="Team_CounterTerrorist" required>
+    <br><br>
+    <label for="Team_Terrorist">¿El jugador esta en el equipo terrorista? (1 -> Si ; 0 -> No) [Team_Terrorist]</label><br>
+    <input type="text" name="Team_Terrorist" id="Team_Terrorist" required>
+    <br><br>
+    <label for="de_dust2">¿El mapa fue de_dust2? (1 -> Si ; 0 -> No) [de_dust2]</label><br>
+    <input type="text" name="de_dust2" id="de_dust2" required>
+    <br><br>
+    <label for="de_inferno">¿El mapa fue de_inferno? (1 -> Si ; 0 -> No) [de_inferno]</label><br>
+    <input type="text" name="de_inferno" id="de_inferno" required>
+    <br><br>
+    <label for="de_mirage">¿El mapa fue de_mirage? (1 -> Si ; 0 -> No) [de_mirage]</label><br>
+    <input type="text" name="de_mirage" id="de_mirage" required>
+    <br><br>
+    <label for="de_nuke">¿El mapa fue de_nuke? (1 -> Si ; 0 -> No) [de_nuke]</label><br>
+    <input type="text" name="de_nuke" id="de_nuke" required>
+    <br><br>
+
+    <input type="button" value="Generar datos aleatorios" onclick="generateRandomData()">
+
+    <input type="submit" value="Predecir">
+    
+  </form>
+</div>
+</body>
+</html>
